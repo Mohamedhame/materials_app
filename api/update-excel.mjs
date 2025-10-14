@@ -11,7 +11,8 @@ export default async function handler(req, res) {
     const { cells, cells2 } = req.body;
 
     // استخدم المسار الصحيح للملف داخل Vercel
-    const filePath = path.join(process.cwd(), "sieve.xlsx");
+    const filePath = path.join(process.cwd(), "api", "sieve.xlsx"); 
+
 
     if (!fs.existsSync(filePath)) {
       return res.status(404).json({ error: "sieve.xlsx not found" });
