@@ -19,7 +19,16 @@ const area2 = document.getElementById("area2");
 /*=================================
         Gradient
 =================================*/
-// area2.value = soilClassification;
+area2.value = soilClassification("Silty Sand with Gravel (SM)");
+
+classification.onchange = () => {
+  if (classification.value === "Fill/SM") {
+    area2.value = soilClassification("Silty Sand with Gravel (SM)");
+  }else if (classification.value === "Fill/SC") {
+    area2.value = soilClassification("Clayey sand with gravel (SC)");
+  }
+};
+
 let result;
 
 let listFake = [
