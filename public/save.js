@@ -47,7 +47,7 @@ async function sendData(
         { address: "P13", value: liquidLimit },
         { address: "P14", value: indexLimt },
         { address: "P15", value: plasticLimit },
-        { address: "F12", value: date },
+        { address: "F11", value: date },
         { address: "F12", value: sourceOfMaterial },
         { address: "E15", value: Number(sampleNumber) },
         { address: "I13", value: selectClassification },

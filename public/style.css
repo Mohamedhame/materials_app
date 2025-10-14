@@ -91,8 +91,7 @@ select option {
   color: #000;
   background-color: transparent;
 }
-#icon,
-#icon2 {
+.fa-solid {
   color: white;
   font-size: 18px;
 }
