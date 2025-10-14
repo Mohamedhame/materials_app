@@ -8,10 +8,11 @@ const lL = document.getElementById("l-l");
 const pI = document.getElementById("p-i");
 const deleteArea = document.getElementById("delete-area");
 const area = document.getElementById("area");
+const classification = document.getElementById("classification");
 
 date.value = getDate();
 
-area.value = soilClassification;
+area.value = soilClassification("Silty Sand with Gravel (SM)");
 
 let list = [
   {
@@ -149,6 +150,14 @@ angleDown.addEventListener("click", () => {
 deleteArea.addEventListener("click", () => {
   area.value = "";
 });
+
+classification.onchange = () => {
+  if (classification.value === "Fill/SM") {
+    area.value = soilClassification("Silty Sand with Gravel (SM)");
+  }else if (classification.value === "Fill/SC") {
+    area.value = soilClassification("Clayey sand with gravel (SC)");
+  }
+};
 
 function createTable() {
   list.forEach((item) => createRow(item));
@@ -290,7 +299,6 @@ function calcPassing(isFine, reservidInput, item, passingInput, weightFine) {
           Number(weightFine.value) - passFine * Number(weightFine.value);
         // item.reserved = reservedFine.toFixed(2);
         item.reserved = Number(reservedFine.toFixed(2));
-
       }
     } else {
       let weightOfPass =

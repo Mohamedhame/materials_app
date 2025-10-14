@@ -19,7 +19,7 @@ const area2 = document.getElementById("area2");
 /*=================================
         Gradient
 =================================*/
-area2.value = soilClassification;
+// area2.value = soilClassification;
 let result;
 
 let listFake = [
@@ -410,4 +410,5 @@ function getNumber(min, max) {
   if (isNaN(min) || isNaN(max) || min === max) return min;
   return Math.random() * (max - min) + min;
 }
+
 initTrials();

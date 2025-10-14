@@ -168,6 +168,13 @@ table tr td input {
   justify-content: space-between;
   padding: 5px;
 }
+.spacer span {
+  display: block;
+  background: #000;
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 50%;
+}
 
 button {
   display: block;
@@ -247,6 +254,10 @@ button {
   .date,
   .select {
     width: 40%;
+  }
+  .spacer span {
+
+    font-size: 12px;
   }
 }
 

@@ -1,5 +1,7 @@
-const soilClassification =
-  "Soil Classification According to ASTM D2487 : Silty Sand with Gravel (SM)\nCoefficient of uniformity ( Cu ): ( N/A ) ( D10 not available )";
+function soilClassification(select = "Silty Sand with Gravel (SM)") {
+  const text = `Soil Classification According to ASTM D2487 : ${select}\nCoefficient of uniformity ( Cu ): ( N/A ) ( D10 not available )`;
+  return text;
+}
 const densityText = "وزن العينة ÷ حجم القالب";
 const wetSampleText = "وزن العينة الكلي - وزن القالب";
 const weightwaterText = "الجفنة بالعينة الرطبة - الجفنة بالعينة الجافه";
