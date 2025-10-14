@@ -1,0 +1,96 @@
+.btm-bar {
+  display: flex;
+  width: 33%;
+  left: 33%;
+  position: fixed;
+  bottom: 15px;
+  border: 1px solid #ccc;
+  padding: 5px;
+  border-radius: 5px;
+  align-items: center;
+  /* justify-content: space-between; */
+  justify-content: center;
+  height: 60px;
+  background: #333;
+}
+.btm-bar .btm-btn button {
+  width: 100%;
+  transition: 0.5s;
+  background-color: transparent;
+  color: white;
+}
+
+.btm-bar .btm-btn {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.btm-bar .btm-btn .active {
+  position: absolute;
+  background: #333;
+  color: #fff;
+  border: 1px solid #eee;
+  height: 110%;
+  border-radius: 50%;
+  top: -20px;
+  right: 15px;
+}
+
+.btm-bar .btm-btn:nth-child(2){
+  display: none;
+}
+
+.btm-bar .btm-btn:last-child .active {
+  left: 5px;
+}
+
+.dialog {
+  position: fixed;
+  top: 25%;
+  left: 20%;
+  height: 50%;
+  width: 60%;
+  border: 1px solid #eee;
+  box-shadow: 4px 8px 12px #ccc;
+  background-color: #333;
+  border-radius: 5px;
+  z-index: 1;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  padding: 0 10px;
+}
+
+.dialog button,
+.dialog .btn {
+  width: 40%;
+  border: 1px solid #ccc;
+  background-color: #333;
+  color: #fff;
+}
+
+.dialog .btn {
+  display: block;
+  margin: 10px auto;
+  padding: 5px;
+  outline: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.dialog .btn:hover {
+  scale: 1.02;
+  box-shadow: 4px 4px 12px rgb(248, 183, 63);
+}
+
+@media (max-width: 800px) {
+  .btm-bar {
+    width: 96%;
+    left: 2%;
+  }
+}

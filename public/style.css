@@ -1,0 +1,258 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  direction: rtl;
+}
+
+body {
+  position: relative;
+  background: #333;
+}
+
+.container {
+  width: 90%;
+  min-height: 100vh;
+  padding: 10px;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+input {
+  padding: 8px;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #aaa;
+  border-radius: 6px;
+  text-align: center;
+  outline: none;
+  background: transparent;
+  color: white;
+  transition: 0.3s;
+  width: 100%;
+}
+
+input:hover,
+select:hover,
+button:hover {
+  scale: 1.02;
+  box-shadow: 4px 4px 12px rgb(248, 183, 63);
+}
+
+.input-label,
+.date,
+.select {
+  position: relative;
+  width: 20%;
+}
+
+.input-label label {
+  position: absolute;
+  right: 10px;
+  top: 12px;
+  font-size: 16px;
+  pointer-events: none;
+  transition: 0.3s ease;
+  padding: 0 4px;
+  color: white;
+  background-color: #333;
+}
+
+.input-label input:focus + label,
+.input-label input:not(:placeholder-shown) + label {
+  top: -8px;
+  right: 8px;
+  font-size: 13px;
+  color: white;
+}
+
+select {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #aaa;
+  border-radius: 6px;
+  text-align: center;
+  outline: none;
+  background: transparent;
+  color: white;
+  transition: 0.3s ease;
+}
+
+select option {
+  color: #000;
+  background-color: transparent;
+}
+#icon,
+#icon2 {
+  color: white;
+  font-size: 18px;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: white;
+}
+
+.divider span {
+  margin: 0 5px;
+}
+
+.divider:not(:empty)::before {
+  margin-right: 0.75em;
+}
+
+.divider:not(:empty)::after {
+  margin-left: 0.75em;
+}
+
+table {
+  width: 100%;
+}
+table tr {
+  color: white;
+}
+table,
+th,
+td {
+  border: 1px solid #555;
+  text-align: center;
+}
+
+table tr td {
+  max-width: 30%;
+}
+
+table tr td input {
+  width: 98%;
+  margin: 0 auto;
+  border: none;
+  outline: none;
+}
+
+.btn-proctor {
+  display: flex;
+  align-items: center;
+}
+
+.btn-proctor button {
+  width: 40%;
+}
+
+.none {
+  display: none;
+}
+
+.spacer {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+button {
+  display: block;
+  width: 95%;
+  margin: 10px auto;
+  padding: 5px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.bowl {
+  width: 48%;
+  border: 1px solid #ccc;
+  margin: 5px 2px;
+}
+
+.input-pair {
+  display: flex;
+  gap: 5px;
+  width: 100%;
+}
+
+.input-pair input {
+  flex: 1;
+  min-width: 0;
+}
+
+#proctor,
+#tableFake,
+#tableFakeliquid {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.input-box {
+  position: relative;
+}
+
+.input-box textarea {
+  width: 100%;
+  min-height: 100px;
+  background-color: transparent;
+  color: #fff;
+  border: 1px solid;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 5px;
+  direction: ltr;
+}
+.input-box img {
+  width: 25px;
+  position: absolute;
+  bottom: 30px;
+  right: 15px;
+  cursor: pointer;
+}
+
+.details {
+  border: 1px solid rgb(248, 183, 63);
+  background: #ffffff03;
+}
+
+.page2 {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .container {
+    width: 100%;
+  }
+  .input-label,
+  .date,
+  .select {
+    width: 40%;
+  }
+}
+
+@media (max-width: 400px) {
+  .date {
+    flex: 1;
+    margin-left: 10px;
+  }
+}

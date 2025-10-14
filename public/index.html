@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="images/log.png" />
+    <meta name="theme-color" content="#333" />
+
+    <link rel="apple-touch-icon" href="/images/log.png" />
+<link rel="manifest" href="/manifest.json" />
+
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="btm-bar.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Material</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="head">
+        <!-- Row 1 (date and source of material) -->
+        <div class="row">
+          <div class="date">
+            <input type="date" id="date" />
+          </div>
+
+          <div class="input-label">
+            <input type="text" placeholder="" id="source" />
+            <label for="source">مصدر العينة</label>
+          </div>
+        </div>
+        <!-- End Row 1  -->
+
+        <!-- Row 2 (Select and Stockpile) -->
+        <div class="row">
+          <div class="select">
+            <select name="" id="classification">
+              <option value="Fill/SM">Fill/SM</option>
+              <option value="Fill/SC">Fill/SC</option>
+            </select>
+          </div>
+
+          <div class="input-label">
+            <input type="text" placeholder="" id="stockpile" />
+            <label for="source">Stockpile</label>
+          </div>
+        </div>
+        <!-- End Row 2  -->
+
+        <!-- Row 3 (Number of sample) -->
+        <div class="row">
+          <div style="width: 90%; margin: 0 auto" class="input-label">
+            <input type="number" placeholder="" id="numberSample" />
+            <label for="numberSample">رقم العينة</label>
+          </div>
+        </div>
+        <!-- End Row 3 -->
+      </div>
+
+      <div class="page1" id="page1">
+        <i class="fa-solid fa-angle-down" id="icon"></i>
+
+        <div id="divider" class="divider">
+          <span>التدرج</span>
+        </div>
+
+        <div style="display: none" id="gradient-table">
+          <!-- Wheight of sample -->
+          <div
+            style="width: 90%; margin: 0 auto; margin-bottom: 10px"
+            class="input-label"
+          >
+            <input type="number" placeholder="" id="weightSample" />
+            <label for="weightSample">وزن العينة</label>
+          </div>
+          <!-- End Wheight of sample -->
+
+          <table id="table">
+            <tr>
+              <th>
+                المناخل
+                <hr />
+                <div class="spacer">
+                  <span>رقم</span>
+                  <span>مم</span>
+                </div>
+              </th>
+              <th>المحجوز</th>
+              <th>المار</th>
+            </tr>
+          </table>
+
+          <!-- liquid limit and plasticity index -->
+          <div style="margin-top: 10px" class="row">
+            <!-- liquid limit -->
+            <div class="input-label">
+              <input type="text" placeholder="" id="l-l" />
+              <label for="l-l">L.L</label>
+            </div>
+            <!-- End liquid limit -->
+            <div class="input-label">
+              <input type="text" placeholder="" id="p-i" />
+              <label for="p-i">P.I</label>
+            </div>
+          </div>
+          <!-- End liquid limit and plasticity index -->
+
+          <div class="input-box">
+            <textarea name="" id="area"> </textarea>
+            <img src="images/delete.png" id="delete-area" />
+          </div>
+          <!-- <p contenteditable="true">
+          <img src="images/delete.png">
+         </p> -->
+        </div>
+
+        <i class="fa-solid fa-angle-down" id="icon2"></i>
+        <div class="divider" id="divider2">
+          <span>بركتور</span>
+        </div>
+
+        <div style="display: none" id="proctor-table">
+          <div
+            id="row-input-proctor"
+            style="
+              display: flex;
+              width: 100%;
+              align-items: center;
+              justify-content: space-between;
+              margin: 10px 0;
+            "
+          >
+            <!-- Wheight of Mold -->
+            <div class="input-label">
+              <input type="number" placeholder="" id="weightMold" />
+              <label for="weightMold">وزن القالب</label>
+            </div>
+            <!-- End Wheight of Mold -->
+
+            <!-- Volum of Mold -->
+            <div class="input-label">
+              <input type="number" placeholder="" id="volumMold" />
+              <label for="volumMold">حجم القالب</label>
+            </div>
+            <!-- End Volum of Mold -->
+          </div>
+
+          <table id="proctor">
+            <tr id="headTr">
+              <th>رقم الاختبار</th>
+            </tr>
+
+            <tr id="weightMoldSample">
+              <td>وزن القالب + العينة رطبة ( جم )</td>
+            </tr>
+
+            <tr id="weightWetSample">
+              <td>وزن العينة رطبة ( جم )</td>
+            </tr>
+
+            <tr id="wetDenisty">
+              <td>الكثافة الرطبة ( جم / سم3)</td>
+            </tr>
+
+            <tr id="emptybowlWeight">
+              <td>وزن الجفنة فارغة ( جم )</td>
+            </tr>
+
+            <tr id="bowlwetsample">
+              <td>وزن الجفنة + العينة رطبة ( جم )</td>
+            </tr>
+
+            <tr id="bowldrysample">
+              <td>وزن الجفنة + العينة جافة ( جم )</td>
+            </tr>
+
+            <tr id="weightwater">
+              <td>وزن المياه ( جم )</td>
+            </tr>
+
+            <tr id="sampledry">
+              <td>وزن العينة جافة ( جم )</td>
+            </tr>
+
+            <tr id="humitidy">
+              <td>نسبة الرطوبة ( % )</td>
+            </tr>
+
+            <tr id="avrghumitidy">
+              <td>متوسط نسبة الرطوبة ( % )</td>
+            </tr>
+
+            <tr id="drydenisity">
+              <td>الكثافة الجافة ( جم / سم3)</td>
+            </tr>
+
+            <tr>
+              <td>أقصى كثافة جافة (جم / سم3)</td>
+              <td class="td"><input type="text" id="max-density" /></td>
+            </tr>
+
+            <tr>
+              <td>نسبة المياة الأصولية ( % )</td>
+              <td class="td"><input type="text" id="water-percent" /></td>
+            </tr>
+          </table>
+
+          <table id="shorts" class="shorts-table none">
+            <tr id="wetweight-short">
+              <td>الكثافة الرطبة (جم/سم3)</td>
+            </tr>
+            <!-- =============== -->
+            <tr id="watercontent-short">
+              <td>محتوي الماء (%)</td>
+            </tr>
+            <!-- =============== -->
+            <tr id="dryweight-short">
+              <td>الكثافة الجافة (%)</td>
+            </tr>
+            <!-- =============== -->
+            <tr>
+              <td>أقصى كثافة جافة (جم / سم3)</td>
+              <td class="td">
+                <input type="text" id="max-density-shorts" />
+              </td>
+            </tr>
+            <!-- =============== -->
+            <tr>
+              <td>نسبة المياة الأصولية ( % )</td>
+              <td class="td">
+                <input type="text" id="water-percent-shorts" />
+              </td>
+            </tr>
+          </table>
+          <div class="btn-proctor">
+            <button type="button" onclick="addCol()">إضافة محاولة</button>
+            <button type="button" id="shorts-btn" onclick="showHide()">
+              مختصر
+            </button>
+          </div>
+        </div>
+
+        <!-- <button type="button" onclick="calculator()">حفظ</button> -->
+        <button type="button" onclick="saveData()">حفظ</button>
+        <div style="height: 60px" class="space"></div>
+      </div>
+
+      <!-- start page 2 -->
+      <div class="page2" id="page2">
+        <div id="divider3" class="divider">
+          <span>التدرج</span>
+        </div>
+        <!-- Start weight sample -->
+        <div class="row">
+          <div class="input-label">
+            <input type="number" placeholder="" id="weightSampleFake" />
+            <label for="weightSampleFake">وزن العينة</label>
+          </div>
+
+          <div class="input-label">
+            <input type="number" placeholder="" id="numberSampleFake" />
+            <label for="numberSampleFake">عدد العينات</label>
+          </div>
+        </div>
+        <!-- End weight sample -->
+        <!-- Start table1  -->
+        <table id="tableFake">
+          <tr>
+            <th>
+              المناخل
+              <hr />
+              <div class="spacer">
+                <span>رقم</span>
+                <span>مم</span>
+              </div>
+            </th>
+            <th>من</th>
+            <th>الي</th>
+          </tr>
+        </table>
+        <!-- End table1  -->
+        <!-- Line2 -->
+        <div class="divider">
+          <span>حدود السيولة واللدونة</span>
+        </div>
+        <!-- End Line2 -->
+
+        <!-- Start table2 -->
+        <table id="tableFakeliquid">
+          <tr>
+            <th>الاختبار</th>
+            <th>من</th>
+            <th>الي</th>
+          </tr>
+          <tr>
+            <td>حد السيولة</td>
+            <td><input type="number" id="liquidfrom" /></td>
+            <td><input type="number" id="liquidto" /></td>
+          </tr>
+
+          <tr>
+            <td>اللدونة</td>
+            <td><input type="number" id="plasticityfrom" /></td>
+            <td><input type="number" id="plasticityto" /></td>
+          </tr>
+        </table>
+        <!-- End table2 -->
+
+        <div class="input-box">
+          <textarea name="" id="area2"> </textarea>
+          <img src="images/delete.png" id="delete-area" />
+        </div>
+
+        <!-- Line3 -->
+        <div class="divider">
+          <span>بركتور</span>
+        </div>
+        <!-- End Line3 -->
+
+        <table class="shorts-table">
+          <tr id="test-proctor-fake">
+            <td>الاختبار</td>
+          </tr>
+          <!-- =============== -->
+          <tr id="watercontent-fake">
+            <td>محتوي الماء (%)</td>
+          </tr>
+          <!-- =============== -->
+          <tr id="dryweight-fake">
+            <td>الكثافة الجافة (%)</td>
+          </tr>
+          <!-- =============== -->
+          <tr>
+            <td>أقصى كثافة جافة (جم / سم3)</td>
+            <td class="td">
+              <input type="number" id="max-density-fake" />
+            </td>
+          </tr>
+          <!-- =============== -->
+          <tr>
+            <td>نسبة المياة الأصولية ( % )</td>
+            <td class="td">
+              <input type="number" id="water-percent-fake" />
+            </td>
+          </tr>
+        </table>
+
+        <button onclick="addCol()">إضافة محاولة جديد</button>
+        <button onclick="saveFake()">حفظ</button>
+
+        <div style="height: 80px"></div>
+      </div>
+
+      <!-- End page 2 -->
+    </div>
+
+    <div class="btm-bar">
+      <div class="btm-btn">
+        <button id="fake-btn" onclick="closePage1()">ضرب صلاحية</button>
+      </div>
+
+      <div class="btm-btn">
+        <button id="home-btn" onclick="displayPage1()">الرئيسية</button>
+      </div>
+
+      <!-- <div class="btm-btn">
+        <button id="save-btn">المحفوظات</button>
+      </div> -->
+    </div>
+
+    <div class="dialog" id="choose-dialog">
+      <label for="fileUpload" class="btn"> مثل ملف موجود </label>
+      <input type="file" id="fileUpload" style="display: none" />
+      <button onclick="closePage1()">انشاء جديد</button>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.8.0/math.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+    <script src="logic.js"></script>
+    <script src="text.js"></script>
+    <script src="main.js"></script>
+    <script src="proctor.js"></script>
+    <script src="shorts.js"></script>
+    <script src="fake.js"></script>
+    <script src="btm-bar.js"></script>
+    <script src="save.js"></script>
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker
+            .register("/service-worker.js")
+            .then((reg) =>
+              console.log("✅ Service Worker registered", reg.scope)
+            )
+            .catch((err) => console.log("❌ Service Worker failed", err));
+        });
+      }
+    </script>
+  </body>
+</html>
