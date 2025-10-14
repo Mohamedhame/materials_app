@@ -24,7 +24,7 @@ async function sendData(
     indexLimt = Number(llValue) - Number(liValue);
   }
 
-  const response = await fetch("/api/update-excel", {
+  const response = await fetch("/api/update_excel", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
