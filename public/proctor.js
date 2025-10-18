@@ -34,7 +34,6 @@ let templet = {
 };
 
 let listTrial = [];
-excelCells = listTrial;
 
 for (let i = 0; i < 4; i++) {
   const newItem = JSON.parse(JSON.stringify(templet));

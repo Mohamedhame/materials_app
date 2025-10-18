@@ -20,6 +20,8 @@ for (let i = 0; i < 4; i++) {
   listTrialShorts.push(newItem);
 }
 
+excelCells = listTrialShorts;
+
 function transitionShorts(newItem) {
   let row1 = document.getElementById(`wetWeightShort${newItem.no}`);
   let row2 = document.getElementById(`waterContentShort${newItem.no}`);
