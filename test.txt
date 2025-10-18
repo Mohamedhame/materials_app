@@ -1,0 +1,140 @@
+  <div style="width: 60%; margin: 0 auto">
+            <i class="fa-solid fa-angle-down" id="cbr-details-icon"></i>
+
+            <div class="divider">
+              <span>######</span>
+            </div>
+          </div>
+
+          <div class="cbr-details">
+            <table id="cbr-compact-table">
+              <tr>
+                <th colspan="3">نسبة الدمك للقالب ( % )</th>
+              </tr>
+
+              <tr>
+                <td colspan="2">حجم القالب ( سم3 )</td>
+                <td><input type="number" id="cbr-mold-volum" /></td>
+              </tr>
+
+              <tr>
+                <td colspan="2">وزن القالب ( جم )</td>
+                <td><input type="number" id="cbr-mold-weight" /></td>
+              </tr>
+
+              <tr>
+                <td colspan="2">وزن القالب + وزن العينة رطبة ( جم )</td>
+                <td><input type="number" id="cbr-moldandsample-weight" /></td>
+              </tr>
+
+              <tr>
+                <td colspan="2">وزن العينة رطبة ( جم )</td>
+                <td><input type="number" id="cbr-wetsample-weight" /></td>
+              </tr>
+
+              <tr>
+                <td colspan="2">الكثافة الرطبة ( جم / سم 3)</td>
+                <td><input type="number" id="cbr-wet-density" /></td>
+              </tr>
+
+              <tr>
+                <td colspan="2">الكثافة الجافة ( جم / سم3 )</td>
+                <td><input type="number" id="cbr-dry-density" /></td>
+              </tr>
+
+              <tr>
+                <td colspan="2">كثافة بروكتور ( جم / سم3 )</td>
+                <td><input type="number" id="cbr-density-proctor" /></td>
+              </tr>
+
+              <tr>
+                <td colspan="2">نسبة الدمك ( % )</td>
+                <td><input type="number" id="cbr-compact-percent" /></td>
+              </tr>
+            </table>
+
+            <!-- ============= -->
+            <table>
+              <tr>
+                <th colspan="3">نسبة الرطوبة للقالب بعد الدمك</th>
+              </tr>
+
+              <tr>
+                <td colspan="2">وزن الجفنة ( جم )</td>
+                <td><input type="number" id="cbr-bowl-weight" /></td>
+              </tr>
+
+              <tr>
+                <td colspan="2">وزن الجفنة + العينة الرطبة (جم)</td>
+                <td>
+                  <input type="number" id="cbr-bowlandsamplewet-weight" />
+                </td>
+              </tr>
+
+              <tr>
+                <td colspan="2">وزن الجفنة + العينة الجافة ( جم )</td>
+                <td>
+                  <input type="number" id="cbr-bowlandsampledry-weight" />
+                </td>
+              </tr>
+
+              <tr>
+                <td colspan="2">وزن الماء ( جم )</td>
+                <td><input type="number" id="cbr-water-weight" /></td>
+              </tr>
+
+              <tr>
+                <td colspan="2">وزن العينة الجافة ( جم )</td>
+                <td><input type="number" id="cbr-samplewet-weight" /></td>
+              </tr>
+
+              <tr>
+                <td colspan="2">نسبة الرطوبة ( % )</td>
+                <td><input type="number" id="cbr-humidity-percentage" /></td>
+              </tr>
+
+              <tr>
+                <td colspan="2">نسبة المياة الأصولية ( % )</td>
+                <td>
+                  <input type="number" id="cbr-obtimun-water-ratio" />
+                </td>
+              </tr>
+            </table>
+            <!-- ============= -->
+            <table>
+              <tr>
+                <th colspan="3">الإنتفــــــــــــاش</th>
+              </tr>
+
+              <tr>
+                <td colspan="2">التاريخ</td>
+                <td><input type="date" id="cbr-date" /></td>
+              </tr>
+
+              <tr>
+                <td colspan="2">قراءة العداد الإبتدائية ( مم )</td>
+                <td><input type="number" id="cbr-initial-meter" /></td>
+              </tr>
+
+              <tr>
+                <td colspan="2">قراءة العداد النهائية ( مم )</td>
+                <td><input type="number" id="cbr-final-meter" /></td>
+              </tr>
+
+              <tr>
+                <td colspan="2">الإنتفاش ( مم )</td>
+                <td><input type="number" id="cbr-swelling" /></td>
+              </tr>
+
+              <tr>
+                <td colspan="2">ارتفاع العينة ( مم )</td>
+                <td><input type="number" id="cbr-sample-height" /></td>
+              </tr>
+
+              <tr>
+                <td colspan="2">نسبة الإنتفاش ( % )</td>
+                <td><input type="number" id="cbr-swelling-ratio" /></td>
+              </tr>
+            </table>
+            
+          </div>

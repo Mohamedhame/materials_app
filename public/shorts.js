@@ -20,9 +20,23 @@ for (let i = 0; i < 4; i++) {
   listTrialShorts.push(newItem);
 }
 
+function transitionShorts(newItem) {
+  let row1 = document.getElementById(`wetWeightShort${newItem.no}`);
+  let row2 = document.getElementById(`waterContentShort${newItem.no}`);
+  let row3 = document.getElementById(`dryWeightShort${newItem.no}`);
+  let row4 = document.getElementById(`max-density-shorts`);
+  let row5 = document.getElementById(`water-percent-shorts`);
+
+  templeteTransition(row1, row2);
+  templeteTransition(row2, row3);
+  templeteTransition(row3, row4);
+  templeteTransition(row4, row5);
+}
+
 function createTableShorts() {
   listTrialShorts.forEach((item) => {
     oneColShorts(item);
+    transitionShorts(item)
   });
 }
 
@@ -80,7 +94,6 @@ function showHide() {
     shortsBtn.innerHTML = "مختصر";
     rowInputProctor.style.display = "flex";
     excelCells = listTrial;
-    
   } else {
     proctor.classList.add("none");
     shorts.classList.remove("none");

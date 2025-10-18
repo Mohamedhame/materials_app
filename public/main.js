@@ -154,7 +154,7 @@ deleteArea.addEventListener("click", () => {
 classification.onchange = () => {
   if (classification.value === "Fill/SM") {
     area.value = soilClassification("Silty Sand with Gravel (SM)");
-  }else if (classification.value === "Fill/SC") {
+  } else if (classification.value === "Fill/SC") {
     area.value = soilClassification("Clayey sand with gravel (SC)");
   }
 };
@@ -168,6 +168,7 @@ function createTable() {
 function createRow(item, isFine = false) {
   const weightFine = document.getElementById("weightFine");
   const tr = document.createElement("tr");
+
   // td 1
   const tdSievs = document.createElement("td");
   const spacer = document.createElement("div");
@@ -179,36 +180,59 @@ function createRow(item, isFine = false) {
   spacer.appendChild(spanNo);
   spacer.appendChild(spanMm);
   tdSievs.appendChild(spacer);
-  //====== End td 1=========
 
-  // ======= td 2 (reserved)========
+  // td 2 (reserved)
   const tdReservid = document.createElement("td");
   const reservidInput = document.createElement("input");
   reservidInput.type = "number";
   reservidInput.value = item.reserved;
   reservidInput.id = item.idResrvid;
-  reservidInput.addEventListener("input", () =>
-    calcResrved(isFine, reservidInput, item, passingInput, weightFine)
-  );
   tdReservid.appendChild(reservidInput);
-  // ======= End td 2 (reserved)========
 
-  // ======= td 3 (Passing)========
+  // td 3 (Passing)
   const tdPassing = document.createElement("td");
   const passingInput = document.createElement("input");
   passingInput.type = "number";
   passingInput.value = item.passing;
   passingInput.id = item.idPass;
+  tdPassing.appendChild(passingInput);
+
+  // الأحداث الحسابية
+  reservidInput.addEventListener("input", () =>
+    calcResrved(isFine, reservidInput, item, passingInput, weightFine)
+  );
   passingInput.addEventListener("input", () =>
     calcPassing(isFine, reservidInput, item, passingInput, weightFine)
   );
-  tdPassing.appendChild(passingInput);
-  // ======= End td 3 (Passing)========
+
+  // ✅ انتقال داخل نفس العمود فقط
+  reservidInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      // كل حقول reserved
+      const allReserved = Array.from(table.querySelectorAll("td:nth-child(2) input"));
+      const currentIndex = allReserved.indexOf(e.target);
+      if (currentIndex >= 0 && currentIndex < allReserved.length - 1) {
+        allReserved[currentIndex + 1].focus();
+      }
+    }
+  });
+
+  passingInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      // كل حقول passing
+      const allPassing = Array.from(table.querySelectorAll("td:nth-child(3) input"));
+      const currentIndex = allPassing.indexOf(e.target);
+      if (currentIndex >= 0 && currentIndex < allPassing.length - 1) {
+        allPassing[currentIndex + 1].focus();
+      }
+    }
+  });
 
   tr.appendChild(tdSievs);
   tr.appendChild(tdReservid);
   tr.appendChild(tdPassing);
-
   table.appendChild(tr);
 }
 
@@ -216,9 +240,11 @@ function createFine() {
   const tr = document.createElement("tr");
   const tdFine = document.createElement("td");
   tdFine.colSpan = "3";
+
   const inputLabel = document.createElement("div");
   inputLabel.className = "input-label";
   inputLabel.style.width = "100%";
+
   const inputFine = document.createElement("input");
   inputFine.type = "number";
   inputFine.placeholder = "";
@@ -229,17 +255,9 @@ function createFine() {
       let reserved = document.getElementById(item.idResrvid);
       let passing = document.getElementById(item.idPass);
 
-      if (!reserved.value && !passing.value) {
-        return;
-      }
-
-      if (reserved?.value && !passing?.value) {
-        reserved.dispatchEvent(new Event("input"));
-      }
-
-      if (passing?.value && !reserved?.value) {
-        passing.dispatchEvent(new Event("input"));
-      }
+      if (!reserved.value && !passing.value) return;
+      if (reserved?.value && !passing?.value) reserved.dispatchEvent(new Event("input"));
+      if (passing?.value && !reserved?.value) passing.dispatchEvent(new Event("input"));
     });
   });
 
@@ -253,6 +271,7 @@ function createFine() {
   tr.appendChild(tdFine);
   table.appendChild(tr);
 }
+
 
 function calcResrved(isFine, reservidInput, item, passingInput, weightFine) {
   item.reserved = reservidInput.value;

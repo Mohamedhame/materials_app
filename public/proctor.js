@@ -427,6 +427,59 @@ function calcMold(item, mold, wet, density) {
 
 createTable();
 
+function templeteTransition(element1, element2) {
+  element1.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      element2.focus();
+    }
+  });
+}
+
+function transition(newItem) {
+  templeteTransition(weightMold, document.getElementById(`mold${1}`));
+  templeteTransition(volumMold, document.getElementById(`mold${1}`));
+  let row1 = document.getElementById(`mold${newItem.no}`);
+  let row2 = document.getElementById(`wet${newItem.no}`);
+  let row3 = document.getElementById(`density${newItem.no}`);
+  //======================
+  let row4_1 = document.getElementById(`ebow${newItem.no}_1`);
+  let row5_1 = document.getElementById(`bowlwet${newItem.no}_1`);
+  let row6_1 = document.getElementById(`bowldry${newItem.no}_1`);
+  let row7_1 = document.getElementById(`wwater${newItem.no}_1`);
+  let row8_1 = document.getElementById(`sdry${newItem.no}_1`);
+  //=================================
+  let row4_2 = document.getElementById(`ebow${newItem.no}_2`);
+  let row5_2 = document.getElementById(`bowlwet${newItem.no}_2`);
+  let row6_2 = document.getElementById(`bowldry${newItem.no}_2`);
+  let row7_2 = document.getElementById(`wwater${newItem.no}_2`);
+  let row8_2 = document.getElementById(`sdry${newItem.no}_2`);
+  //=================================
+  let row9 = document.getElementById(`avrhum${newItem.no}`);
+  let row10 = document.getElementById(`ddensity${newItem.no}`);
+  let row11 = document.getElementById("max-density");
+  let row12 = document.getElementById("water-percent");
+
+  templeteTransition(row1, row2);
+  templeteTransition(row2, row3);
+  templeteTransition(row3, row4_1);
+  templeteTransition(row4_1, row5_1);
+  templeteTransition(row5_1, row6_1);
+  templeteTransition(row6_1, row7_1);
+  templeteTransition(row7_1, row8_1);
+  //============================
+  templeteTransition(row4_2, row5_2);
+  templeteTransition(row5_2, row6_2);
+  templeteTransition(row6_2, row7_2);
+  templeteTransition(row7_2, row8_2);
+  //===========================
+  templeteTransition(row8_1, row9);
+  templeteTransition(row8_2, row9);
+  templeteTransition(row9, row10);
+  templeteTransition(row10, row11);
+  templeteTransition(row11, row12);
+}
+
 function oneCol(newItem, index) {
   td.forEach((element) => {
     element.setAttribute("colspan", listTrial.length);
@@ -440,6 +493,7 @@ function oneCol(newItem, index) {
 
   headTr.appendChild(createTh(newItem.no));
   weightMoldSample.appendChild(createtd(`mold${newItem.no}`));
+
   weightWetSample.appendChild(
     createtd(`wet${newItem.no}`, false, wetSampleText, [
       `mold${newItem.no}`,
@@ -534,6 +588,7 @@ function oneCol(newItem, index) {
 
   handelBowl(newItem, 1);
   handelBowl(newItem, 2);
+  transition(newItem);
 }
 
 function addCol() {
@@ -547,7 +602,7 @@ function addCol() {
 
   listTrial.push(newItem);
 
-  oneCol(newItem);
+  oneCol(newItem, listTrial.length - 1);
   addColShorts();
   addColFake();
 }

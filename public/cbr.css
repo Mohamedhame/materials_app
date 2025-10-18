@@ -1,0 +1,26 @@
+.cbr table {
+  border-collapse: collapse;
+  table-layout: fixed;
+  margin:10px 0;
+}
+
+.cbr-details{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.cbr-details table{
+  max-width: 350px;
+}
+
+@media (max-width:765px) {
+  .cbr{
+    width: 100%;
+    justify-content: center;
+  }
+  .cbr table{
+    width: 98%;
+    max-width: 98%;
+  }
+}

@@ -11,6 +11,7 @@
 
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="btm-bar.css" />
+    <link rel="stylesheet" href="cbr.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
@@ -150,7 +151,7 @@
             <!-- End Volum of Mold -->
           </div>
 
-          <table id="proctor">
+          <table id="proctor" class="none">
             <tr id="headTr">
               <th>رقم الاختبار</th>
             </tr>
@@ -210,7 +211,7 @@
             </tr>
           </table>
 
-          <table id="shorts" class="shorts-table none">
+          <table id="shorts" class="shorts-table">
             <tr id="wetweight-short">
               <td>الكثافة الرطبة (جم/سم3)</td>
             </tr>
@@ -240,23 +241,42 @@
           <div class="btn-proctor">
             <button type="button" onclick="addCol()">إضافة محاولة</button>
             <button type="button" id="shorts-btn" onclick="showHide()">
-              مختصر
+              الكامل
             </button>
           </div>
         </div>
         <!-- ======= CBR =============== -->
-        <!-- <i class="fa-solid fa-angle-down" id="icon3"></i>
-        <div class="divider" id="divider2">
+        <i class="fa-solid fa-angle-down" id="cbr-icon"></i>
+
+        <div class="divider">
           <span>CBR</span>
         </div>
 
-        <div class="">
+        <div class="cbr none">
           <table>
             <tr>
-               <th>نسبة الدمك للقالب  ( % )</th>
+              <th>الإختراق</th>
+              <td>10 ضربات</td>
+              <td>25 ضربة</td>
+              <td>65 ضربة</td>
             </tr>
           </table>
-        </div> -->
+          <div class="middel" style="width: 70%; margin: 0 auto">
+            <i class="fa-solid fa-angle-down" id="cbr-mold-icon"></i>
+
+            <div class="divider">
+              <span>القالب</span>
+            </div>
+          </div>
+          <table id="cbr-table-mold" class="none"></table>
+          <div class="middel" style="width: 70%; margin: 0 auto">
+            <i class="fa-solid fa-angle-down" id="cbr-blows-icon"></i>
+            <div class="divider">
+              <span>الضربات</span>
+            </div>
+          </div>
+          <table id="cbr-table" class="none"></table>
+        </div>
 
         <!-- ======= // CBR =============== -->
 
@@ -388,6 +408,7 @@
     <script src="proctor.js"></script>
     <script src="shorts.js"></script>
     <script src="fake.js"></script>
+    <script src="cbr.js"></script>
     <script src="btm-bar.js"></script>
     <script src="save.js"></script>
     <script>

@@ -8,7 +8,10 @@ async function sendData(
   sampleNumber,
   selectClassification,
   stockpile,
-  cells2
+  cells2,
+  blows10,
+  blows25,
+  blows65
 ) {
   //=== liquid limit and plastcity index
   let liquidLimit = llValue;
@@ -54,6 +57,9 @@ async function sendData(
         { address: "E14", value: Number(stockpile) },
       ],
       cells2: cells2,
+      blows10Cell: blows10,
+      blows25Cell: blows25,
+      blows65Cell: blows65,
     }),
   });
 
@@ -93,7 +99,10 @@ function saveData() {
     numberSample.value,
     selectClassification.value,
     stockpile.value,
-    listCells2()
+    listCells2(),
+    blows10Cell(),
+    blows25Cell(),
+    blows65Cell()
   );
 }
 
@@ -158,4 +167,75 @@ function listCells2() {
   }
 
   return cells2;
+}
+function blows10Cell() {
+  let swell = document.getElementById(`blows10-moldswell`);
+  let waterContent = document.getElementById(`blows10-moldwaterContent`);
+  let dryDensity = document.getElementById(`blows10-molddryDensity`);
+  let cell = [
+    { address: "K19", value: Number(cbrlist[0].blows10) },
+    { address: "K20", value: Number(cbrlist[1].blows10) },
+    { address: "K21", value: Number(cbrlist[2].blows10) },
+    { address: "K22", value: Number(cbrlist[3].blows10) },
+    { address: "K23", value: Number(cbrlist[4].blows10) },
+    { address: "K24", value: Number(cbrlist[5].blows10) },
+    { address: "K25", value: Number(cbrlist[6].blows10) },
+    { address: "K26", value: Number(cbrlist[7].blows10) },
+    { address: "K27", value: Number(cbrlist[8].blows10) },
+    { address: "K28", value: Number(cbrlist[9].blows10) },
+    { address: "K29", value: Number(cbrlist[10].blows10) },
+    { address: "I34", value: Number(swell.value) },
+    { address: "E35", value: Number(waterContent.value) },
+    { address: "I35", value: Number(dryDensity.value) },
+  ];
+
+  return cell;
+}
+
+function blows25Cell() {
+  let swell = document.getElementById(`blows25-moldswell`);
+  let waterContent = document.getElementById(`blows25-moldwaterContent`);
+  let dryDensity = document.getElementById(`blows25-molddryDensity`);
+  let cell = [
+    { address: "K19", value: Number(cbrlist[0].blows25) },
+    { address: "K20", value: Number(cbrlist[1].blows25) },
+    { address: "K21", value: Number(cbrlist[2].blows25) },
+    { address: "K22", value: Number(cbrlist[3].blows25) },
+    { address: "K23", value: Number(cbrlist[4].blows25) },
+    { address: "K24", value: Number(cbrlist[5].blows25) },
+    { address: "K25", value: Number(cbrlist[6].blows25) },
+    { address: "K26", value: Number(cbrlist[7].blows25) },
+    { address: "K27", value: Number(cbrlist[8].blows25) },
+    { address: "K28", value: Number(cbrlist[9].blows25) },
+    { address: "K29", value: Number(cbrlist[10].blows25) },
+    { address: "I34", value: Number(swell.value) },
+    { address: "E35", value: Number(waterContent.value) },
+    { address: "I35", value: Number(dryDensity.value) },
+  ];
+
+  return cell;
+}
+
+function blows65Cell() {
+  let swell = document.getElementById(`blows65-moldswell`);
+  let waterContent = document.getElementById(`blows65-moldwaterContent`);
+  let dryDensity = document.getElementById(`blows65-molddryDensity`);
+  let cell = [
+    { address: "K19", value: Number(cbrlist[0].blows65) },
+    { address: "K20", value: Number(cbrlist[1].blows25) },
+    { address: "K21", value: Number(cbrlist[2].blows65) },
+    { address: "K22", value: Number(cbrlist[3].blows65) },
+    { address: "K23", value: Number(cbrlist[4].blows65) },
+    { address: "K24", value: Number(cbrlist[5].blows65) },
+    { address: "K25", value: Number(cbrlist[6].blows65) },
+    { address: "K26", value: Number(cbrlist[7].blows65) },
+    { address: "K27", value: Number(cbrlist[8].blows65) },
+    { address: "K28", value: Number(cbrlist[9].blows65) },
+    { address: "K29", value: Number(cbrlist[10].blows65) },
+    { address: "I34", value: Number(swell.value) },
+    { address: "E35", value: Number(waterContent.value) },
+    { address: "I35", value: Number(dryDensity.value) },
+  ];
+
+  return cell;
 }
